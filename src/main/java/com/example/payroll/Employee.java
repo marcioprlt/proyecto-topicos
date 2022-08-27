@@ -1,8 +1,12 @@
 package com.example.payroll;
 
-import java.util.Objects;
+import java.util.Date;
+
+//import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -11,14 +15,18 @@ class Employee {
 
   private @Id @GeneratedValue Long id;
   private String name;
-  private String role;
+  private Roles role;
+  private int salary;
+  private Date startDate;
 
   Employee() {}
 
-  Employee(String name, String role) {
+  Employee(String name, Roles role, int salary, Date startDate) {
 
     this.name = name;
     this.role = role;
+    this.salary = salary;
+    this.startDate = startDate;
   }
 
   public Long getId() {
@@ -29,8 +37,16 @@ class Employee {
     return this.name;
   }
 
-  public String getRole() {
+  public Roles getRole() {
     return this.role;
+  }
+
+  public int getSalary() {
+	return salary;
+  }
+
+  public Date getStartDate() {
+	return startDate;
   }
 
   public void setId(Long id) {
@@ -41,7 +57,15 @@ class Employee {
     this.name = name;
   }
 
-  public void setRole(String role) {
+  public void setRole(Roles role) {
     this.role = role;
+  }
+  
+  public void setSalary(int salary) {
+	  this.salary = salary;
+  }
+  
+  public void setStartDate(Date startDate) {
+	  this.startDate = startDate;
   }
 }
