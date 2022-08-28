@@ -1,4 +1,4 @@
-package com.example.payroll;
+package com.example.payroll.misc;
 
 import java.time.Duration;
 import java.time.ZonedDateTime;
@@ -11,6 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.example.payroll.enums.Roles;
+import com.example.payroll.models.Employee;
+import com.example.payroll.repository.EmployeeRepository;
 
 @Configuration
 class LoadDatabase {
@@ -28,7 +32,7 @@ class LoadDatabase {
       date.set(1995, 2, 22);
       log.info("Preloading " + repository.save(new Employee("Frodo Baggins", Roles.SENIOR, 1200, date.getTime())));
       
-      date.set(2019, 4, 27);
+      date.set(2019, 9, 27);
       log.info("Preloading " + repository.save(new Employee("Samwise Gamgee", Roles.JUNIOR, 700, date.getTime())));
       
       date.set(2020, 7, 17);
@@ -40,6 +44,8 @@ class LoadDatabase {
       date.set(2022, 1, 18);
       log.info("Preloading " + repository.save(new Employee("Aragorn", Roles.MIDDLE, 2000, date.getTime())));
       
+      date.set(2018, 11, 24);
+      log.info("Preloading " + repository.save(new Employee("Gandalf", Roles.JUNIOR, 100, date.getTime())));
     };
   }
 }

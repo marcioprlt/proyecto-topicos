@@ -1,4 +1,4 @@
-package com.example.payroll;
+package com.example.payroll.models;
 
 import java.util.Date;
 
@@ -10,8 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.example.payroll.enums.Roles;
+
 @Entity
-class Employee {
+public class Employee {
 
   private @Id @GeneratedValue Long id;
   private String name;
@@ -21,7 +23,7 @@ class Employee {
 
   Employee() {}
 
-  Employee(String name, Roles role, int salary, Date startDate) {
+  public Employee(String name, Roles role, int salary, Date startDate) {
 
     this.name = name;
     this.role = role;
